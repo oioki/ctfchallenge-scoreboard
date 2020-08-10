@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>CTF scoreboard</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta http-equiv="refresh" content="30">
+</head>
+
+<body>
+    <h1>{{ context.title }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Team</th>
+                <th scope="col">Flags</th>
+                <th scope="col">Hints</th>
+            </tr>
+        </thead>
+{% for item in context.teams %}
+        <tr>
+            <td><a href="https://ctfchallenge.co.uk/user/{{ item.team }}">{{ item.team }}</a></td>
+            <td>{{ item.flags_found }}<a class="subtle"> / 64</a></td>
+            <td>{{ item.hints_used }}<a class="subtle"> / 56</a></td>
+        </tr>
+{% endfor %}
+    </table>
+</body>
+</html>
